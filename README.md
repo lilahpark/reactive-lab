@@ -19,13 +19,15 @@ Reactive Streams의 핵심 개념과 주요 operator를 코드와 로그, 테스
 - StepVerifier를 이용한 리액티브 코드 테스트
 
 ## Project Structure
+
 src/main/java
-└─ io.github.lilahpark.reactivelab
-├─ basics
-├─ operators
-├─ errorhandling
-├─ scheduling
-└─ webflux
+└─ io/github/lilahpark/reactivelab
+   ├─ basics
+   ├─ operators
+   ├─ errorhandling
+   ├─ scheduling
+   └─ webflux
+
 
 
 ## Notes
