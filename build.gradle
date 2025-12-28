@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '4.0.0'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+description = 'com.reactive'
+
+java {
+    toolchain {
+        // Boot 4는 Java 17 이상 지원 → 강의는 보통 17 기준이니 그대로 둬도 됨
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // WebFlux 서버/클라이언트 + Reactor(core) 를 포함하는 스타터
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // JsonPath 최신 버전 (2025-10 기준 2.10.0)
+    implementation 'com.jayway.jsonpath:json-path:2.10.0'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // 테스트
+    // spring-boot-starter-webflux-test 는 존재하지 않음 → 기본 test 스타터 사용
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
